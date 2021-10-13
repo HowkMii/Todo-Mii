@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'ui/pages/notification_screen.dart';
 import 'ui/pages/home_page.dart';
 
 void main() {
