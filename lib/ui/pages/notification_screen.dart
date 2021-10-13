@@ -34,7 +34,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
           style: TextStyle(color:Colors.black),
         ),
       ),
-      body: Container(),
+      body: SafeArea(
+        child: Column(
+          children: [
+            
+          ],
+        ),
+
+      ),
     );
   }
 }
