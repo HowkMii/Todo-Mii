@@ -29,6 +29,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
         elevation: 0,
         backgroundColor: context.theme.backgroundColor,
+        title: Text(
+          _payload.toString().split('')[0],
+        ),
       ),
       body: Container(),
     );
