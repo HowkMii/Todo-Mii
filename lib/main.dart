@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return  GetMaterialApp(
       theme: ThemeData(
         primaryColor: Colors.teal,
+        backgroundColor: Colors.teal
       ),
       title: 'Mii Todo',
       debugShowCheckedModeBanner: false,
