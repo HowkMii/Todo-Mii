@@ -3,13 +3,21 @@ import 'package:get/get.dart';
 
 
 class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({Key? key}) : super(key: key);
+  const NotificationScreen({Key? key, required this.payload}) : super(key: key);
+  final String payload;
 
   @override
   _NotificationScreenState createState() => _NotificationScreenState();
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
+  String _payload='';
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _payload=widget.payload;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
