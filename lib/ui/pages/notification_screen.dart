@@ -28,7 +28,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           
         ),
         elevation: 0,
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: context.theme.backgroundColor,
       ),
       body: Container(),
     );
