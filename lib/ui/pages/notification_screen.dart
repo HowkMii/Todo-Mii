@@ -31,6 +31,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         backgroundColor: context.theme.backgroundColor,
         title: Text(
           _payload.toString().split('|')[1],
+          style: TextStyle(color:Colors.black),
         ),
       ),
       body: Container(),
