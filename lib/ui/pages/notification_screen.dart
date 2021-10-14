@@ -39,9 +39,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
             Column(
               children: [
                 const SizedBox(height: 10,),
-                Text('hohoh',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:darkGreyClr, ),),
+                Text('Hello , Ma Fucking Guy',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:darkGreyClr, ),),
                 const SizedBox(height: 10,),
-                Text('hohohhohohhohoh',style:TextStyle(fontSize: 18,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.grey[100]:darkGreyClr, ),),
+                Text('You have a new reminder',style:TextStyle(fontSize: 18,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.grey[100]:darkGreyClr, ),),
               ],
             ),
             const SizedBox(height: 10,),
@@ -56,16 +56,47 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 child: SingleChildScrollView(
                   child:Column(
                     children: [
+                      const SizedBox(height: 20,),
                       Row(
-                        children: [
-                          const SizedBox(height: 10,),
+                        children: const [
+                          Icon(Icons.text_format, size: 35,color: Colors.white,),
+                          SizedBox(width: 10,),
                           Text('title',
                            // _payload.toString().split('|')[1],
                             style:TextStyle(color:Colors.white,fontSize: 30)
-                          )
+                          ),
+                         
                         ],
                       ),
                       const SizedBox(height: 10,),
+                      Text(_payload.toString().split('|')[0],style:TextStyle(color:Colors.black ,fontSize: 20)),
+                      Row(
+                        children: const [
+                          Icon(Icons.description, size: 35,color: Colors.white,),
+                          SizedBox(width: 10,),
+                          Text('Descrption',
+                           // _payload.toString().split('|')[1],
+                            style:TextStyle(color:Colors.white,fontSize: 30)
+                          )
+                         
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+                      Text(_payload.toString().split('|')[1],style:const TextStyle(color:Colors.black ,fontSize: 20),textAlign: TextAlign.justify,),
+                      Row(
+                        children: const [
+                          Icon(Icons.calendar_today_outlined, size: 35,color: Colors.white,),
+                          SizedBox(width: 10,),
+                          Text('Date',
+                           // _payload.toString().split('|')[1],
+                            style:TextStyle(color:Colors.white,fontSize: 30)
+                          ),
+                         
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+                      Text(_payload.toString().split('|')[2],style:const TextStyle(color:Colors.white ,fontSize: 20),textAlign: TextAlign.justify,),
+
                     ],
                   ) ,),
               ),

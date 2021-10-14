@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       title: 'Mii Todo',
       debugShowCheckedModeBanner: false,
-      home:const NotificationScreen(payload: "fffff|khgn",),
+      home:const NotificationScreen(payload: "Title|Desc|20:00",),
     );
   }
 }
