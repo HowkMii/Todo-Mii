@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 const Color bluishClr = Color(0xFF4e5ae8);
 const Color orangeClr = Color(0xCFFF8746);
 const Color pinkClr = Color(0xFFff4667);
