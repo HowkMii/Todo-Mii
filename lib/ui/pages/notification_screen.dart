@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../theme.dart';
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key, required this.payload}) : super(key: key);
   final String payload;
@@ -27,13 +29,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
         backgroundColor: context.theme.backgroundColor,
         title: Text(
           _payload.toString().split('|')[1],
-          style: TextStyle(color:Get.isDarkMode? Colors.white:Colors.black),
+          style: TextStyle(color:Get.isDarkMode? Colors.white:darkGreyClr),
         ),
       ),
       body: SafeArea(
         child: Column(
           children: [
-            Text('hohoh',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:Colors.black),),
+            Text('hohoh',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:darkGreyClr, ),),
 
 
           ],
