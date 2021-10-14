@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../theme.dart';
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key, required this.payload}) : super(key: key);
@@ -27,6 +26,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
         elevation: 0,
         backgroundColor: context.theme.backgroundColor,
+        
+        centerTitle: true,
         title: Text(
           _payload.toString().split('|')[1],
           style: TextStyle(color:Get.isDarkMode? Colors.white:darkGreyClr),
@@ -47,6 +48,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
             Expanded(
               child: Container(
                 padding: const EdgeInsets.only(left: 30,right: 30),
+                margin: const EdgeInsets.only(left: 30,right: 30),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color:primaryClr,
+                ),
               ),
             ),
             const SizedBox(height: 10,),
