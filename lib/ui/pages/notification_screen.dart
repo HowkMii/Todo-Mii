@@ -36,6 +36,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
         child: Column(
           children: [
             Text('hohoh',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:darkGreyClr, ),),
+            const SizedBox(height: 10,),
+            Text('hohohhohohhohoh',style:TextStyle(fontSize: 18,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.grey[100]:darkGreyClr, ),),
 
 
           ],
@@ -44,3 +46,4 @@ class _NotificationScreenState extends State<NotificationScreen> {
     );
   }
 }
+//
