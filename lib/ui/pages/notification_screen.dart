@@ -35,15 +35,25 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Text('hohoh',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:darkGreyClr, ),),
+            Column(
+              children: [
+                const SizedBox(height: 10,),
+                Text('hohoh',style:TextStyle(fontSize: 26,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.white:darkGreyClr, ),),
+                const SizedBox(height: 10,),
+                Text('hohohhohohhohoh',style:TextStyle(fontSize: 18,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.grey[100]:darkGreyClr, ),),
+              ],
+            ),
             const SizedBox(height: 10,),
-            Text('hohohhohohhohoh',style:TextStyle(fontSize: 18,fontWeight: FontWeight.w900,color:Get.isDarkMode?Colors.grey[100]:darkGreyClr, ),),
-
-
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.only(left: 30,right: 30),
+              ),
+            ),
+            const SizedBox(height: 10,),
           ],
         ),
       ),
     );
   }
 }
-//
+//not 1
