@@ -58,9 +58,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     children: [
                       Row(
                         children: [
+                          const SizedBox(height: 10,),
                           Text('title',
                            // _payload.toString().split('|')[1],
-                            style:TextStyle(color:Colors.white)
+                            style:TextStyle(color:Colors.white,fontSize: 30)
                           )
                         ],
                       ),
