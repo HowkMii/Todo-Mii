@@ -53,6 +53,20 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   borderRadius: BorderRadius.circular(30),
                   color:primaryClr,
                 ),
+                child: SingleChildScrollView(
+                  child:Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text('title',
+                           // _payload.toString().split('|')[1],
+                            style:TextStyle(color:Colors.white)
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 10,),
+                    ],
+                  ) ,),
               ),
             ),
             const SizedBox(height: 10,),
