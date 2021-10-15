@@ -10,7 +10,7 @@ const Color darkHeaderClr = Color(0xFF424242);
 class Themes {
   static final light = ThemeData(
     primaryColor: primaryClr,
-    backgroundColor:Colors.white,
+    backgroundColor:primaryClr,
     brightness: Brightness.light,
 
   );
@@ -19,4 +19,9 @@ class Themes {
     backgroundColor:darkGreyClr,
     brightness: Brightness.dark
   );
+  TextStyle get headingStyle {
+    return TextStyle(
+      color:Colors.white ,
+      fontSize: 20);
+  }
 }
