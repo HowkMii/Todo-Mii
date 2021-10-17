@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Center(child: MyButton(label: 'Add task',onTap: (){},)),
+      body: Center(child:MyButton(label: 'Add task',onTap: (){},)),
     );
   }
 }
