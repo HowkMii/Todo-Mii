@@ -21,7 +21,9 @@ class Themes {
     backgroundColor:darkGreyClr,
     brightness: Brightness.dark
   );
-  TextStyle get headingStyle {
+  
+}
+TextStyle get headingStyle {
     return GoogleFonts.lato(
       textStyle: TextStyle(
         fontSize: 24,
@@ -98,4 +100,3 @@ class Themes {
     );
         
   }
-}
