@@ -27,11 +27,15 @@ class _HomePageState extends State<HomePage> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Center(child:Column(
-        children: [
-          MyButton(label: 'Add task',onTap: (){},),
-          const InputField(label: 'label', title: 'title')
-        ],
+      body: Center(
+        child:Flexible(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MyButton(label: 'Add task',onTap: (){},),
+              const InputField(label: 'label', title: 'title')
+            ],
+          ),
       )),
     );
   }
