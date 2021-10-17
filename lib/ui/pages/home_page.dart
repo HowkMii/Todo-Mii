@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               MyButton(label: 'Add task',onTap: (){},),
-              const InputField(hint: 'hint', title: 'title')
+              const InputField(hint: 'hint', title: 'title',widget: Icon(Icons.access_alarm),)
             ],
           ),
       )),

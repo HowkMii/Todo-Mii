@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:todomii/ui/size_config.dart';
 
@@ -32,12 +33,15 @@ class InputField extends StatelessWidget {
             children: [
               Expanded(child: TextFormField(
                 controller: controller,
+                readOnly: widget!=null? true:false,
                 autofocus: false,
+                cursorColor: Get.isDarkMode? Colors.grey[100]:Colors.grey[700] ,
+                style: subtitleStyle,
                 decoration: InputDecoration(
                   hintText: hint,
                   hintStyle: subtitleStyle,
                   enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: context.theme.backgroundColor)) ,
-                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: context.theme.backgroundColor))
+                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: context.theme.backgroundColor,width:0 ))
 
                 ),
               )),
