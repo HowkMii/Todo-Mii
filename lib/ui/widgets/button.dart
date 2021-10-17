@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:todomii/ui/theme.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({Key? key,required this.label, required this.onTap}) : super(key: key);
@@ -7,13 +9,21 @@ class MyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 45,
-      child: Text(label,style:const TextStyle(
-        color: Colors.white,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        width: 100,
+        height: 45,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: primaryClr
+        ),
+        child: Text(label,style:const TextStyle(
+          color: Colors.white,
+        ),
+        textAlign:TextAlign.center,),
       ),
-      textAlign:TextAlign.center,),
     );
   }
 }
