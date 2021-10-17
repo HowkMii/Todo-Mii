@@ -11,12 +11,17 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 30,vertical:10 ),
-      margin: const EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.only(top: 8),
+      margin: const EdgeInsets.only(left: 30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
         color:primaryClr,
-      )
+      ),
+      child: Row(
+        children: [
+          TextField(),
+        ],
+      ),
 
     );
   }
