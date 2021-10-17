@@ -14,7 +14,7 @@ class InputField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 8),
       margin: const EdgeInsets.only(left: 14),
-      width: 45,
+      width: SizeConfig.screenWidth,
       height: 52,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -22,7 +22,7 @@ class InputField extends StatelessWidget {
           color: Colors.grey,
 
         ),
-        color:primaryClr,
+        
       ),
       child: TextFormField(),
 
