@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
         child:Flexible(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               MyButton(label: 'Add task',onTap: (){},),
               const InputField(label: 'label', title: 'title')
