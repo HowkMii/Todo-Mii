@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todomii/services/theme_services.dart';
+import 'package:todomii/ui/widgets/button.dart';
 
 import 'notification_screen.dart';
 
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
       ),
-      body: Container(),
+      body: Center(child: MyButton(label: 'Add task',onTap: (){},)),
     );
   }
 }
