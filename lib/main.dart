@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeServices().theme,
       title: 'Mii Todo',  
       debugShowCheckedModeBanner: false,
-      home:const HomePage(),
+      home:const NotificationScreen(),
     );
   }
 }
