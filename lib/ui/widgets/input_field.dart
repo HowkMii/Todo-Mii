@@ -21,14 +21,14 @@ class InputField extends StatelessWidget {
           padding: const EdgeInsets.only(top: 8),
           margin: const EdgeInsets.only(left: 16),
 
-         /*decoration: BoxDecoration(
+         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               color: Colors.grey,
 
             ),
             
-          ),*/
+          ),
           child: Row(
             children: [
               Expanded(child: TextFormField(
@@ -37,7 +37,9 @@ class InputField extends StatelessWidget {
                 autofocus: false,
                 cursorColor: Get.isDarkMode? Colors.grey[100]:Colors.grey[700] ,
                 style: subtitleStyle,
+                
                 decoration: InputDecoration(
+                  
                   hintText: hint,
                   hintStyle: subtitleStyle,
                   
