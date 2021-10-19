@@ -40,7 +40,8 @@ class InputField extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: hint,
                   hintStyle: subtitleStyle,
-                  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: context.theme.backgroundColor)) ,
+                  
+                  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: context.theme.backgroundColor,width: 0)) ,
                   focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: context.theme.backgroundColor,width:0 ))
 
                 ),
