@@ -49,8 +49,76 @@ class _AddTaskPageState extends State<AddTaskPage> {
               InputField(
               hint: DateFormat.yMd().format(_selectDate), 
               title: 'Date',
-              widget: IconButton(onPressed: (){},icon:Icon(Icons.calendar_today_outlined)),
+              widget: IconButton(onPressed: (){},icon:Icon(Icons.calendar_today_outlined, color: Colors.grey,)),
               ),
+              Row(
+                children: [
+                  Expanded(
+                    child: InputField(
+                    hint: _startTime, 
+                    title: 'Start Time',
+                    widget: IconButton(onPressed: (){},icon:Icon(Icons.access_time_rounded, color: Colors.grey,)),
+                                ),
+                  ),
+                  const SizedBox(width:20),
+                   Expanded(
+                    child: InputField(
+                    hint: _endtTime, 
+                    title: 'End Time',
+                    widget: IconButton(onPressed: (){},icon:Icon(Icons.access_time_rounded, color: Colors.grey,)),
+                                ),
+                  ),
+           
+                ],
+
+              ),
+              InputField(
+              hint:  '$_selectedRemind minutes early', 
+              title: 'Remind',
+              widget:DropdownButton(
+                dropdownColor: Colors.blueGrey,
+                borderRadius: BorderRadius.circular(10),
+                items: remindList.map<DropdownMenuItem<String>>((value) => DropdownMenuItem<String>(value:value.toString(),child: Text('$value',style:const TextStyle(color:Colors.white ),)),).toList(),
+                icon: Icon(Icons.keyboard_arrow_down,color:Colors.grey),
+                iconSize: 32,
+                elevation: 4,
+                underline: Container(
+                  height: 0,
+                  
+                ),
+                style: subtitleStyle,
+                onChanged:(String? newValue){
+                  setState(() {
+                    _selectedRemind=int.parse(newValue!);
+                  });
+                } ,
+              ),
+
+              ),
+               InputField(
+              hint:  '$_selectedRepeat', 
+              title: 'Repeat',
+              widget:DropdownButton(
+                dropdownColor: Colors.blueGrey,
+                borderRadius: BorderRadius.circular(10),
+                items: repeatList.map<DropdownMenuItem<String>>((String value) => DropdownMenuItem<String>(value:value,child: Text(value,style:const TextStyle(color:Colors.white ),)),).toList(),
+                icon: Icon(Icons.keyboard_arrow_down,color:Colors.grey),
+                iconSize: 32,
+                elevation: 4,
+                underline: Container(
+                  height: 0,
+                  
+                ),
+                style: subtitleStyle,
+                onChanged:(String? newValue){
+                  setState(() {
+                    _selectedRepeat=newValue!;
+                  });
+                } ,
+              ),
+
+              ),
+              
             ],
             
 
