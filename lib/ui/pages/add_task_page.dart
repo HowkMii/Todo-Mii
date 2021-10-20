@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:todomii/controllers/task_controller.dart';
 import 'package:todomii/ui/theme.dart';
+import 'package:todomii/ui/widgets/button.dart';
 import 'package:todomii/ui/widgets/input_field.dart';
 
 class AddTaskPage extends StatefulWidget {
@@ -118,7 +119,18 @@ class _AddTaskPageState extends State<AddTaskPage> {
               ),
 
               ),
-              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  _colorPalette(),
+                  MyButton(label: 'Create Task',
+                  onTap: (){
+                    Get.back();
+                  },)
+
+                ],
+              )
             ],
             
 
@@ -126,5 +138,14 @@ class _AddTaskPageState extends State<AddTaskPage> {
         ),
       ),
     );
+  }
+
+  Column _colorPalette() {
+    return Column(
+                  children: [
+                    Text('Color'),
+
+                  ],
+                );
   }
 }
