@@ -143,7 +143,26 @@ class _AddTaskPageState extends State<AddTaskPage> {
   Column _colorPalette() {
     return Column(
                   children: [
-                    Text('Color'),
+                    Text('Color',style: titleStyle,),
+                    Wrap(
+                      children:  List<Widget>.generate(3, (index) => 
+                        GestureDetector(
+                          onTap: (){},
+                          child: Padding(
+                            padding: const EdgeInsets.only(right:8.0),
+                            child: CircleAvatar(
+                              backgroundColor: index ==0?
+                                primaryClr:
+                                index==1?
+                                pinkClr:orangeClr,
+                                
+                            ),
+                          ),
+                        ),
+                      ),
+                        
+                     
+                    ),
 
                   ],
                 );
