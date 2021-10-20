@@ -156,7 +156,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
   Column _colorPalette() {
     return Column(
                   children: [
-                    Text('Color',style: titleStyle,),
+                    
                     const SizedBox(height: 8,),
                     Wrap(
                       children:  List<Widget>.generate(4, (index) => 
