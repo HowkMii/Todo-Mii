@@ -29,10 +29,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text('Add Task',style:headingStyle ,),
-      ),
+      appBar: _appBar(),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
@@ -150,6 +147,24 @@ class _AddTaskPageState extends State<AddTaskPage> {
           ),
         ),
       ),
+    );
+  }
+
+  AppBar _appBar() {
+    return AppBar(
+      /*centerTitle: true,
+      title: Text('Add Task',style:headingStyle ,),*/
+       leading: IconButton(
+          onPressed: ()=>Get.back(),
+          icon: Icon(Icons.arrow_back_ios,size: 24,color: primaryClr,),
+        ),
+        elevation: 0,
+        backgroundColor: context.theme.backgroundColor,
+        centerTitle: true,
+        actions: [
+          
+        ],
+       
     );
   }
 
