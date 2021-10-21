@@ -30,6 +30,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    backgroundColor: context.theme.backgroundColor,
+
       appBar: _appBar(),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -153,20 +155,16 @@ class _AddTaskPageState extends State<AddTaskPage> {
 
   AppBar _appBar() {
     return AppBar(
-      /*centerTitle: true,
-      title: Text('Add Task',style:headingStyle ,),*/
+      centerTitle: true,
+      title: Text('Add Task',style:headingStyle ,),
        leading: IconButton(
-          onPressed: (){
-            ThemeServices().switTheme();
-          },
-          icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),
+          onPressed: ()=> Get.back(),
+          icon: Icon( Icons.arrow_back_ios ,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),
         ),
         elevation: 0,
         backgroundColor: context.theme.backgroundColor,
-        centerTitle: true,
-        actions: [
-
-        ],
+        
+        
        
     );
   }
