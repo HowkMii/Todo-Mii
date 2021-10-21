@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/size_config.dart';
+import 'package:todomii/ui/theme.dart';
 import 'package:todomii/ui/widgets/button.dart';
 import 'package:todomii/ui/widgets/input_field.dart';
 import 'add_task_page.dart';
@@ -20,14 +21,16 @@ class _HomePageState extends State<HomePage> {
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
+         leading: IconButton(
           onPressed: (){
             ThemeServices().switTheme();
-            Get.to(const NotificationScreen(payload: "hi |ho|hi",));
-            
           },
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),
         ),
+        elevation: 0,
+        backgroundColor: context.theme.backgroundColor,
+        centerTitle: true,
+        
       ),
       body: Container(
         child:SingleChildScrollView(

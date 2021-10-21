@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:todomii/controllers/task_controller.dart';
+import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/theme.dart';
 import 'package:todomii/ui/widgets/button.dart';
 import 'package:todomii/ui/widgets/input_field.dart';
@@ -155,14 +156,16 @@ class _AddTaskPageState extends State<AddTaskPage> {
       /*centerTitle: true,
       title: Text('Add Task',style:headingStyle ,),*/
        leading: IconButton(
-          onPressed: ()=>Get.back(),
-          icon: Icon(Icons.arrow_back_ios,size: 24,color: primaryClr,),
+          onPressed: (){
+            ThemeServices().switTheme();
+          },
+          icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),
         ),
         elevation: 0,
         backgroundColor: context.theme.backgroundColor,
         centerTitle: true,
         actions: [
-          
+
         ],
        
     );
