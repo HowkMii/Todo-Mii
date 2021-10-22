@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/size_config.dart';
 import 'package:todomii/ui/theme.dart';
@@ -54,10 +55,10 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Sep'),
-              Text('Today',style: subheadingStyle,)
+              Text(DateFormat.yMMMMd().format(DateTime.now()),style: subheadingStyle,),
+              Text('Today',style: headingStyle,)
             ],
           ),
           MyButton(label: '+ Add Task',onTap: (){},)
