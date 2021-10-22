@@ -21,25 +21,52 @@ class _HomePageState extends State<HomePage> {
     SizeConfig().init(context);
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
-      appBar: AppBar(
-          leading: IconButton(
-          onPressed: (){
-              ThemeServices().switTheme();
-          },
-          icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),),
-          elevation: 0,
-          backgroundColor: context.theme.backgroundColor,
-          centerTitle: true,
-        
-      ),
+      appBar: _appbarr(context),
       body: Column(
         children: [
           _addTaskBar(),
-          _addDateBar(),
-          const SizedBox(height: 6,),
-          _showTasks()
+          //_addDateBar(),
+          const SizedBox(height: 6),
+          //_showTasks()
         ],
       )
     );
   }
+
+  AppBar _appbarr(BuildContext context) {
+    return AppBar(
+        leading: IconButton(
+        onPressed: (){
+            ThemeServices().switTheme();
+        },
+        icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),),
+        elevation: 0,
+        backgroundColor: context.theme.backgroundColor,
+        centerTitle: true,
+      
+    );
+  }
+
+  _addTaskBar() {
+    return Container(
+      margin: const EdgeInsets.only(left: 20,right: 10,top: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text('Sep'),
+              Text('Today',style: subheadingStyle,)
+            ],
+          ),
+          MyButton(label: '+ Add Task',onTap: (){},)
+        ],
+      ),
+    );
+  }
+
+  _addDateBar() {}
+
+  _showTasks() {}
 }
