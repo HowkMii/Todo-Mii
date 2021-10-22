@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:todomii/controllers/task_controller.dart';
 import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/size_config.dart';
 import 'package:todomii/ui/theme.dart';
@@ -17,6 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TaskController _taskController = Get.put(TaskController());
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -61,7 +64,12 @@ class _HomePageState extends State<HomePage> {
               Text('Today',style: headingStyle,)
             ],
           ),
-          MyButton(label: '+ Add Task',onTap: (){},)
+          MyButton(
+            label: '+ Add Task',
+            onTap: ()async{
+              await Get.to(()=>const AddTaskPage());
+              _taskController.getTasks();
+            },)
         ],
       ),
     );
