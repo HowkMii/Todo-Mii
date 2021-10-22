@@ -68,7 +68,8 @@ class _HomePageState extends State<HomePage> {
             label: '+ Add Task',
             onTap: ()async{
               await Get.to(()=>const AddTaskPage());
-              _taskController.getTasks();
+              ThemeServices().switTheme();
+              //_taskController.getTasks();
             },)
         ],
       ),
