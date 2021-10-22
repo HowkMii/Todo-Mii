@@ -22,30 +22,24 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: context.theme.backgroundColor,
       appBar: AppBar(
-         leading: IconButton(
+          leading: IconButton(
           onPressed: (){
-            ThemeServices().switTheme();
+              ThemeServices().switTheme();
           },
-          icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),
-        ),
-        elevation: 0,
-        backgroundColor: context.theme.backgroundColor,
-        centerTitle: true,
+          icon: Icon(Get.isDarkMode? Icons.wb_sunny_outlined:Icons.nightlight_round_outlined,size: 24,color: Get.isDarkMode?Colors.white : darkGreyClr,),),
+          elevation: 0,
+          backgroundColor: context.theme.backgroundColor,
+          centerTitle: true,
         
       ),
-      body: Container(
-        child:SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              MyButton(label: 'Add task',onTap: (){
-                Get.to(const AddTaskPage());
-              },),
-              const InputField(hint: 'hint', title: 'title',widget: Icon(Icons.access_alarm),)
-            ],
-          ),
-      )),
+      body: Column(
+        children: [
+          _addTaskBar(),
+          _addDateBar(),
+          const SizedBox(height: 6,),
+          _showTasks()
+        ],
+      )
     );
   }
 }
