@@ -81,30 +81,31 @@ class _HomePageState extends State<HomePage> {
 
   _addDateBar() {
     return Container(
-      margin: const EdgeInsets.only(top: 6,left: 20),
+      margin: const EdgeInsets.only(top: 9,left: 20),
       child: DatePicker(
         //_selectedDate,
         DateTime.now(),
-        width: 80,
+        width: 70,
         height:100,
+        initialSelectedDate:DateTime.now(),
         selectedTextColor: Colors.white,
         selectionColor: primaryClr,
         dayTextStyle: GoogleFonts.lato(
             textStyle: const TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color:Colors.grey)
       ),
         dateTextStyle:GoogleFonts.lato(
             textStyle: const TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color:Colors.grey)
       ), 
         monthTextStyle:GoogleFonts.lato(
             textStyle: const TextStyle(
             fontSize: 12,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w600,
             color:Colors.grey)
       ),
         onDateChange: (newDate){
