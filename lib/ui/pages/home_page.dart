@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final TaskController _taskController = Get.put(TaskController());
+  DateTime _selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +82,19 @@ class _HomePageState extends State<HomePage> {
     return Container(
       margin: const EdgeInsets.only(top: 6,left: 20),
       child: DatePicker(
-        DateTime.now(),
-        
+        _selectedDate,
+        width: 80,
+        height:100,
+        selectedTextColor: Colors.white,
+        selectionColor: primaryClr,
+        onDateChange: (newDate){
+          setState(() {
+            _selectedDate = newDate;
+          });
+        },
+
+
+
       ),
     );
   }
