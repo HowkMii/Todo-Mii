@@ -1,3 +1,4 @@
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           _addTaskBar(),
-          //_addDateBar(),
+          _addDateBar(),
           const SizedBox(height: 6),
           //_showTasks()
         ],
@@ -76,7 +77,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _addDateBar() {}
+  _addDateBar() {
+    return Container(
+      margin: const EdgeInsets.only(top: 6,left: 20),
+      child: DatePicker(
+        DateTime.now(),
+        
+      ),
+    );
+  }
 
   _showTasks() {}
 }
