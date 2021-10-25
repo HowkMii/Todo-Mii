@@ -141,10 +141,13 @@ class _HomePageState extends State<HomePage> {
           child: Wrap(
             direction: Axis.horizontal,
             children: [
-              Text(
-                  'You do not have any tasks yet! \n add new tasks to make your days productive.',
-                  style: subtitleStyle,
-                  textAlign: TextAlign.center)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    'You do not have any tasks yet! \n add new tasks to make your days productive.',
+                    style: subtitleStyle,
+                    textAlign: TextAlign.center),
+              )
             ],
           ),
         )
