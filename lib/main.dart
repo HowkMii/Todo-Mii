@@ -4,7 +4,6 @@ import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/theme.dart';
 import 'ui/pages/notification_screen.dart';
 import 'ui/pages/home_page.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -14,13 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+    return GetMaterialApp(
       theme: Themes.light,
       darkTheme: Themes.Dark,
       themeMode: ThemeServices().theme,
-      title: 'Mii Todo',  
+      title: 'Mii Todo',
       debugShowCheckedModeBanner: false,
-      home:const HomePage(),
+      home: const HomePage(),
     );
   }
 }
