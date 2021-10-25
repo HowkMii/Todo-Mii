@@ -142,7 +142,9 @@ class _HomePageState extends State<HomePage> {
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             alignment: WrapAlignment.center,
-            direction: Axis.horizontal,
+            direction: SizeConfig.orientation == Orientation.landscape
+                ? Axis.horizontal
+                : Axis.vertical,
             children: [
               SizeConfig.orientation == Orientation.landscape
                   ? const SizedBox(
