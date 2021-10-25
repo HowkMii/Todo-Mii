@@ -1,5 +1,6 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -139,10 +140,26 @@ class _HomePageState extends State<HomePage> {
       children: [
         SingleChildScrollView(
           child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.center,
             direction: Axis.horizontal,
             children: [
+              SizeConfig.orientation == Orientation.landscape
+                  ? const SizedBox(
+                      height: 6,
+                    )
+                  : const SizedBox(
+                      height: 220,
+                    ),
+              SvgPicture.asset(
+                'images/task.svg',
+                color: primaryClr.withOpacity(0.5),
+                height: 90,
+                semanticsLabel: 'Task',
+              ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
                 child: Text(
                     'You do not have any tasks yet! \n add new tasks to make your days productive.',
                     style: subtitleStyle,
