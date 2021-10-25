@@ -138,43 +138,46 @@ class _HomePageState extends State<HomePage> {
   _noTaskMsg() {
     return Stack(
       children: [
-        SingleChildScrollView(
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.center,
-            direction: SizeConfig.orientation == Orientation.landscape
-                ? Axis.horizontal
-                : Axis.vertical,
-            children: [
-              SizeConfig.orientation == Orientation.landscape
-                  ? const SizedBox(
-                      height: 6,
-                    )
-                  : const SizedBox(
-                      height: 220,
-                    ),
-              SvgPicture.asset(
-                'images/task.svg',
-                color: primaryClr.withOpacity(0.5),
-                height: 90,
-                semanticsLabel: 'Task',
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
-                child: Text(
-                    'You do not have any tasks yet! \n add new tasks to make your days productive.',
-                    style: subtitleStyle,
-                    textAlign: TextAlign.center),
-              ),
-              SizeConfig.orientation == Orientation.landscape
-                  ? const SizedBox(
-                      height: 6,
-                    )
-                  : const SizedBox(
-                      height: 220,
-                    ),
-            ],
+        AnimatedPositioned(
+          duration: const Duration(milliseconds: 2000),
+          child: SingleChildScrollView(
+            child: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              alignment: WrapAlignment.center,
+              direction: SizeConfig.orientation == Orientation.landscape
+                  ? Axis.horizontal
+                  : Axis.vertical,
+              children: [
+                SizeConfig.orientation == Orientation.landscape
+                    ? const SizedBox(
+                        height: 6,
+                      )
+                    : const SizedBox(
+                        height: 220,
+                      ),
+                SvgPicture.asset(
+                  'images/task.svg',
+                  color: primaryClr.withOpacity(0.5),
+                  height: 90,
+                  semanticsLabel: 'Task',
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0, vertical: 10),
+                  child: Text(
+                      'You do not have any tasks yet! \n add new tasks to make your days productive.',
+                      style: subtitleStyle,
+                      textAlign: TextAlign.center),
+                ),
+                SizeConfig.orientation == Orientation.landscape
+                    ? const SizedBox(
+                        height: 120,
+                      )
+                    : const SizedBox(
+                        height: 180,
+                      ),
+              ],
+            ),
           ),
         )
       ],
