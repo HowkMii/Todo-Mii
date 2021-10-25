@@ -121,6 +121,30 @@ class _HomePageState extends State<HomePage> {
   }
 
   _showTasks() {
-    return Expanded(child: Obx(() {}));
+    return Expanded(child: Obx(() {
+      if (_taskController.taskList.isEmpty) {
+        return _noTaskMsg();
+      } else {
+        Container(height: 0);
+      }
+    }));
+  }
+
+  _noTaskMsg() {
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          child: Wrap(
+            direction: Axis.horizontal,
+            children: [
+              Text(
+                  'You do not have any tasks yet! \n add new tasks to make your days productive.',
+                  style: subtitleStyle,
+                  textAlign: TextAlign.center)
+            ],
+          ),
+        )
+      ],
+    );
   }
 }
