@@ -166,7 +166,14 @@ class _HomePageState extends State<HomePage> {
                     'You do not have any tasks yet! \n add new tasks to make your days productive.',
                     style: subtitleStyle,
                     textAlign: TextAlign.center),
-              )
+              ),
+              SizeConfig.orientation == Orientation.landscape
+                  ? const SizedBox(
+                      height: 6,
+                    )
+                  : const SizedBox(
+                      height: 220,
+                    ),
             ],
           ),
         )
