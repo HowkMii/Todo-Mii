@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
       if (_taskController.taskList.isEmpty) {
         return _noTaskMsg();
       } else {
-        Container(height: 0);
+        return Container(height: 0);
       }
     }));
   }
