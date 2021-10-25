@@ -120,14 +120,18 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+//_taskController.taskList.isEmpty
   _showTasks() {
-    return Expanded(child: Obx(() {
-      if (_taskController.taskList.isEmpty) {
+    return Expanded(
+      child: _noTaskMsg(),
+      /*child: Obx(() {
+      if (true) {
         return _noTaskMsg();
       } else {
         return Container(height: 0);
       }
-    }));
+    })*/
+    );
   }
 
   _noTaskMsg() {
