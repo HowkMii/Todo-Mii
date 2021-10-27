@@ -3,6 +3,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:todomii/ui/pages/notification_screen.dart';
 
 class NotifyHelper {
 tz.initializeTimeZones();
@@ -35,10 +36,7 @@ Future selectNotification(String payload) async {
     if (payload != null) {
       debugPrint('notification payload: $payload');
     }
-    await Navigator.push(
-      context,
-      MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
-    );
+    await Get.to(NotificationScreen(payload:payload));
 }
 
 const AndroidNotificationDetails androidPlatformChannelSpecifics =
