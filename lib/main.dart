@@ -8,7 +8,7 @@ import 'ui/pages/home_page.dart';
 
 void main() async {
   runApp(const MyApp());
-  WidgetsFlutterBinding.ensureInitialized;
+  //WidgetsFlutterBinding.ensureInitialized;
   NotifyHelper().initializeNotification();
 }
 

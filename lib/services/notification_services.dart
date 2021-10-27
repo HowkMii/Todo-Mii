@@ -6,7 +6,7 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:todomii/ui/pages/notification_screen.dart';
 
 class NotifyHelper {
-  InitializeNotification() async {
+  initializeNotification() async {
     tz.initializeTimeZones();
     //tz.setLocalLocation(tz.getLocation(timeZoneName));
     final AndroidInitializationSettings initializationSettingsAndroid =

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:todomii/controllers/task_controller.dart';
+import 'package:todomii/services/notification_services.dart';
 import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/size_config.dart';
 import 'package:todomii/ui/theme.dart';
@@ -21,6 +22,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late NotifyHelper notifyHelper;
+  @override
+  void initState() {
+    super.initState();
+    notifyHelper = NotifyHelper();
+    notifyHelper.initializeNotification();
+  }
+
   final TaskController _taskController = Get.put(TaskController());
   DateTime _selectedDate = DateTime.now();
 
@@ -45,6 +54,8 @@ class _HomePageState extends State<HomePage> {
       leading: IconButton(
         onPressed: () {
           ThemeServices().switTheme();
+          notifyHelper.displayNotification(title: 'theme change', body: "'yo");
+          notifyHelper.scheduledNotification();
         },
         icon: Icon(
           Get.isDarkMode
