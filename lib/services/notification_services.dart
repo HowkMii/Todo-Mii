@@ -50,7 +50,7 @@ displayNotification({required String title,required String body}){
     IOSNotificationDetails iosPlatformChannelSpecifics =
     const IOSNotificationDetails();
     NotificationDetails  platformChannelSpecifics =
-    NotificationDetails(android: androidPlatformChannelSpecifics);
+    NotificationDetails(android: androidPlatformChannelSpecifics, iOS: iosPlatformChannelSpecifics);
 
 }
 
