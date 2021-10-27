@@ -6,13 +6,12 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:todomii/ui/pages/notification_screen.dart';
 
 class NotifyHelper {
-tz.initializeTimeZones();
-tz.setLocalLocation(tz.getLocation(timeZoneName));
-
-FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
-  const AndroidInitializationSettings initializationSettingsAndroid =
-      AndroidInitializationSettings('app_icon');
+InitializeNotification()async{
+    
+  tz.initializeTimeZones();
+  //tz.setLocalLocation(tz.getLocation(timeZoneName));
+  final AndroidInitializationSettings initializationSettingsAndroid =
+      const AndroidInitializationSettings('app_icon');
   final IOSInitializationSettings initializationSettingsIOS =
       IOSInitializationSettings(
     requestSoundPermission: false,
@@ -20,11 +19,9 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     requestAlertPermission: false,
     onDidReceiveLocalNotification: onDidReceiveLocalNotification,
   );
-  final MacOSInitializationSettings initializationSettingsMacOS =
-      MacOSInitializationSettings(
-          requestAlertPermission: false,
-          requestBadgePermission: false,
-          requestSoundPermission: false);
+
+}
+ 
   final InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
@@ -64,7 +61,7 @@ await flutterLocalNotificationsPlugin.zonedSchedule(
         UILocalNotificationDateInterpretation.absoluteTime);
 
 Future onDidReceiveLocalNotification(
-      int id, String body, String payload) async {
-    Get.dialog(Text(body));
+      int id, String? body, String? payload) async {
+    Get.dialog(Text(body!));
   }
 }
