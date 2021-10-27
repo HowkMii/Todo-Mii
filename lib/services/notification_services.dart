@@ -20,30 +20,41 @@ InitializeNotification()async{
     onDidReceiveLocalNotification: onDidReceiveLocalNotification,
   );
 
-}
- 
   final InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: initializationSettingsIOS,
-      macOS: initializationSettingsMacOS);
+      );
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-      onSelectNotification: onSelectNotification);
+      onSelectNotification: (String? payload)async{
+        selectNotification(payload!);
+      });
 
+}
+
+
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 Future selectNotification(String payload) async {
     if (payload != null) {
       debugPrint('notification payload: $payload');
     }
     await Get.to(NotificationScreen(payload:payload));
 }
-
-const AndroidNotificationDetails androidPlatformChannelSpecifics =
-    AndroidNotificationDetails('your channel id', 'your channel name',
-        channelDescription: 'your channel description',
+displayNotification({required String title,required String body}){
+   AndroidNotificationDetails androidPlatformChannelSpecifics =
+    const AndroidNotificationDetails('your channel id', 'your channel name',
+        'your channel description',
         importance: Importance.max,
         priority: Priority.high,
         ticker: 'ticker');
-const NotificationDetails platformChannelSpecifics =
+    IOSNotificationDetails iosPlatformChannelSpecifics =
+    const IOSNotificationDetails();
+    NotificationDetails  platformChannelSpecifics =
     NotificationDetails(android: androidPlatformChannelSpecifics);
+
+}
+
+
 await flutterLocalNotificationsPlugin.show(
     0, 'plain title', 'plain body', platformChannelSpecifics,
     payload: 'item x');
