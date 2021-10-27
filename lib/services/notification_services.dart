@@ -40,7 +40,7 @@ Future selectNotification(String payload) async {
     }
     await Get.to(NotificationScreen(payload:payload));
 }
-displayNotification({required String title,required String body}){
+displayNotification({required String title,required String body}) async {
    AndroidNotificationDetails androidPlatformChannelSpecifics =
     const AndroidNotificationDetails('your channel id', 'your channel name',
         'your channel description',
@@ -51,13 +51,14 @@ displayNotification({required String title,required String body}){
     const IOSNotificationDetails();
     NotificationDetails  platformChannelSpecifics =
     NotificationDetails(android: androidPlatformChannelSpecifics, iOS: iosPlatformChannelSpecifics);
+    await flutterLocalNotificationsPlugin.show(
+    0, 'plain title', 'plain body', platformChannelSpecifics,
+    payload: 'item x');
 
 }
 
 
-await flutterLocalNotificationsPlugin.show(
-    0, 'plain title', 'plain body', platformChannelSpecifics,
-    payload: 'item x');
+
 await flutterLocalNotificationsPlugin.zonedSchedule(
     0,
     'scheduled title',
