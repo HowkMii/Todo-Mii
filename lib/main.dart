@@ -8,8 +8,8 @@ import 'ui/pages/home_page.dart';
 
 void main() async {
   runApp(const MyApp());
-  //WidgetsFlutterBinding.ensureInitialized;
-  NotifyHelper().initializeNotification();
+  WidgetsFlutterBinding.ensureInitialized;
+  //NotifyHelper().initializeNotification();
 }
 
 class MyApp extends StatelessWidget {

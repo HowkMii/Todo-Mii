@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     notifyHelper = NotifyHelper();
+    //notifyHelper.requestAndroidPermissiion;
     notifyHelper.initializeNotification();
   }
 

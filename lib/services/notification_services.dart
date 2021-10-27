@@ -70,6 +70,17 @@ class NotifyHelper {
             UILocalNotificationDateInterpretation.absoluteTime);
   }
 
+  /*requestIOSPermissiion() {
+    flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+          sound: true,
+          alert: true,
+          badge: true,
+        );
+  }*/
+
   Future onDidReceiveLocalNotification(
       int id, String? title, String? body, String? payload) async {
     Get.dialog(Text(body!));
