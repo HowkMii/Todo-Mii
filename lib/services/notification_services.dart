@@ -61,7 +61,7 @@ await flutterLocalNotificationsPlugin.zonedSchedule(
         UILocalNotificationDateInterpretation.absoluteTime);
 
 Future onDidReceiveLocalNotification(
-      int id, String? body, String? payload) async {
+      int id, String? title,String? body, String? payload) async {
     Get.dialog(Text(body!));
   }
 }
