@@ -42,7 +42,7 @@ class NotifyHelper {
   displayNotification({required String title, required String body}) async {
     AndroidNotificationDetails androidPlatformChannelSpecifics =
         const AndroidNotificationDetails(
-            'your channel id', 'your channel name name name', 'your channel description',
+            'your channel id', 'Im in hackathon dz', 'your channel description',
             importance: Importance.max,
             priority: Priority.high,
             ticker: 'ticker');
