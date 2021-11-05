@@ -27,7 +27,8 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     notifyHelper = NotifyHelper();
-    //notifyHelper.requestAndroidPermissiion;
+    notifyHelper.requestIOSPermissiion();
+    //notifyHelper.requestAndroidPermissiion();
     notifyHelper.initializeNotification();
   }
 
@@ -55,7 +56,7 @@ class _HomePageState extends State<HomePage> {
       leading: IconButton(
         onPressed: () {
           ThemeServices().switTheme();
-          notifyHelper.displayNotification(title: 'theme change', body: "'yo");
+          notifyHelper.displayNotification(title: 'theme change', body: 'yo');
           notifyHelper.scheduledNotification();
         },
         icon: Icon(

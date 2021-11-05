@@ -70,7 +70,7 @@ class NotifyHelper {
             UILocalNotificationDateInterpretation.absoluteTime);
   }
 
-  /*requestIOSPermissiion() {
+  requestIOSPermissiion() {
     flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
             IOSFlutterLocalNotificationsPlugin>()
@@ -79,7 +79,7 @@ class NotifyHelper {
           alert: true,
           badge: true,
         );
-  }*/
+  }
 
   Future onDidReceiveLocalNotification(
       int id, String? title, String? body, String? payload) async {
