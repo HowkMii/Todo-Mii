@@ -6,6 +6,8 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:todomii/ui/pages/notification_screen.dart';
 
 class NotifyHelper {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      FlutterLocalNotificationsPlugin();
   initializeNotification() async {
     tz.initializeTimeZones();
     //tz.setLocalLocation(tz.getLocation(timeZoneName));
@@ -30,8 +32,6 @@ class NotifyHelper {
     });
   }
 
-  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-      FlutterLocalNotificationsPlugin();
   Future selectNotification(String payload) async {
     if (payload != null) {
       debugPrint('notification payload: $payload');
