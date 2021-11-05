@@ -10,7 +10,7 @@ class NotifyHelper {
     tz.initializeTimeZones();
     //tz.setLocalLocation(tz.getLocation(timeZoneName));
     final AndroidInitializationSettings initializationSettingsAndroid =
-        const AndroidInitializationSettings('app_icon');
+        const AndroidInitializationSettings('appicon');
     final IOSInitializationSettings initializationSettingsIOS =
         IOSInitializationSettings(
       requestSoundPermission: false,
