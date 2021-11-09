@@ -33,7 +33,17 @@ class TaskTile extends StatelessWidget {
                       height: 12,
                     ),
                     Row(
-                      children: [],
+                      children: [
+                        Icon(
+                          Icons.access_time_rounded,
+                          color: Colors.grey[200],
+                          size: 18,
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Text('${task.startTime}-${task.endTime}'),
+                      ],
                     ),
                     const SizedBox(
                       height: 12,
