@@ -15,6 +15,15 @@ class TaskTile extends StatelessWidget {
         width: SizeConfig.orientation == Orientation.landscape
             ? SizeConfig.screenWidth / 2
             : SizeConfig.screenWidth,
+        child:Container(
+          child:Row(
+            children: [
+              Expanded(child: child)
+              Container(),
+              RotatedBox(quarterTurns: quarterTurns)
+            ],
+          ) ,
+        ) ,
       ),
     );
   }
