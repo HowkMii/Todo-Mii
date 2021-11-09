@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:todomii/models/task.dart';
 
 import '../size_config.dart';
 
 class TaskTile extends StatelessWidget {
-  const TaskTile({Key? key}) : super(key: key);
+  const TaskTile(
+    this.task, {
+    Key? key,
+  }) : super(key: key);
+  final Task task;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +27,19 @@ class TaskTile extends StatelessWidget {
               Expanded(
                   child: SingleChildScrollView(
                 child: Column(
-                  children: [],
+                  children: [
+                    Text(task.title!),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      children: [],
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text(task.note!)
+                  ],
                 ),
               )),
               Container(
@@ -32,7 +50,16 @@ class TaskTile extends StatelessWidget {
               ),
               RotatedBox(
                 quarterTurns: 3,
-                child: Text(''),
+                child: Text(
+                  task.isCompleted == 0 ? 'TODO' : 'Completed',
+                  style: GoogleFonts.lato(
+                    textStyle: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               )
             ],
           ),
