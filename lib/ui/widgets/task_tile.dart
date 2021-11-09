@@ -27,12 +27,23 @@ class TaskTile extends StatelessWidget {
               Expanded(
                   child: SingleChildScrollView(
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(task.title!),
+                    Text(
+                      task.title!,
+                      style: GoogleFonts.lato(
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 12,
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Icon(
                           Icons.access_time_rounded,
@@ -57,7 +68,16 @@ class TaskTile extends StatelessWidget {
                     const SizedBox(
                       height: 12,
                     ),
-                    Text(task.note!)
+                    Text(
+                      task.note!,
+                      style: GoogleFonts.lato(
+                        textStyle: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[100],
+                        ),
+                      ),
+                    )
                   ],
                 ),
               )),
