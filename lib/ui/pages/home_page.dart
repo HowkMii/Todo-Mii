@@ -139,7 +139,13 @@ class _HomePageState extends State<HomePage> {
 //_taskController.taskList.isEmpty
   _showTasks() {
     return Expanded(
-      child: TaskTile(Task()),
+      child: TaskTile(Task(
+          title: 'daiki',
+          note: 'somthing',
+          isCompleted: 0,
+          startTime: '22:22',
+          endTime: '23:22',
+          color: 1)),
       /*child: Obx(() {
       if (true) {
         return _noTaskMsg();
