@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todomii/models/task.dart';
-
+import '../../models/task.dart';
 import '../size_config.dart';
 import '../theme.dart';
 
