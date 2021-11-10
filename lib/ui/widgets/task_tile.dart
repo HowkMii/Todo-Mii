@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:todomii/models/task.dart';
 
 import '../size_config.dart';
+import '../theme.dart';
 
 class TaskTile extends StatelessWidget {
   const TaskTile(
@@ -22,6 +23,10 @@ class TaskTile extends StatelessWidget {
             ? SizeConfig.screenWidth / 2
             : SizeConfig.screenWidth,
         child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: _getBGLr(task.color),
+          ),
           child: Row(
             children: [
               Expanded(
@@ -105,5 +110,18 @@ class TaskTile extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _getBGLr(int? color) {
+    switch (color) {
+      case 0:
+        return bluishClr;
+      case 1:
+        return pinkClr;
+      case 2:
+        return orangeClr;
+      default:
+        return bluishClr;
+    }
   }
 }
