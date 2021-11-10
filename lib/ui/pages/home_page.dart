@@ -5,12 +5,14 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:todomii/controllers/task_controller.dart';
+import 'package:todomii/models/task.dart';
 import 'package:todomii/services/notification_services.dart';
 import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/size_config.dart';
 import 'package:todomii/ui/theme.dart';
 import 'package:todomii/ui/widgets/button.dart';
 import 'package:todomii/ui/widgets/input_field.dart';
+import 'package:todomii/ui/widgets/task_tile.dart';
 import 'add_task_page.dart';
 import 'notification_screen.dart';
 
@@ -137,7 +139,7 @@ class _HomePageState extends State<HomePage> {
 //_taskController.taskList.isEmpty
   _showTasks() {
     return Expanded(
-      child: _noTaskMsg(),
+      child: TaskTile(Task()),
       /*child: Obx(() {
       if (true) {
         return _noTaskMsg();
