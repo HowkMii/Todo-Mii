@@ -210,7 +210,17 @@ class _HomePageState extends State<HomePage> {
       SingleChildScrollView(
         child: Container(
           child: Column(
-            children: [],
+            children: [
+              Flexible(
+                  child: Container(
+                height: 6,
+                width: 120,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Get.isDarkMode ? Colors.grey[600] : Colors.grey[300],
+                ),
+              ))
+            ],
           ),
         ),
       ),
