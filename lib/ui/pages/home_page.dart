@@ -212,14 +212,22 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               Flexible(
-                  child: Container(
-                height: 6,
-                width: 120,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Get.isDarkMode ? Colors.grey[600] : Colors.grey[300],
+                child: Container(
+                  height: 6,
+                  width: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Get.isDarkMode ? Colors.grey[600] : Colors.grey[300],
+                  ),
                 ),
-              ))
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              task.isCompleted == 1
+                  ? Container()
+                  : _buildBottomSheet(
+                      label: 'Task Complated', onTap: () {}, clr: primaryClr)
             ],
           ),
         ),
