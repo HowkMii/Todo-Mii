@@ -204,4 +204,10 @@ class _HomePageState extends State<HomePage> {
       ],
     );
   }
+
+  _buildBottomSheet(
+      {required String label,
+      required Function() onTap,
+      required Color clr,
+      bool isClose = false}) {}
 }
