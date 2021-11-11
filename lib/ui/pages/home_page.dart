@@ -205,6 +205,18 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  showBottomSheet(BuildContext context, Task task) {
+    Get.bottomSheet(
+      SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [],
+          ),
+        ),
+      ),
+    );
+  }
+
   _buildBottomSheet(
       {required String label,
       required Function() onTap,
@@ -227,6 +239,12 @@ class _HomePageState extends State<HomePage> {
           ),
           borderRadius: BorderRadius.circular(20),
           color: isClose ? Colors.transparent : clr,
+        ),
+        child: Center(
+          child: Text(label,
+              style: isClose
+                  ? titleStyle
+                  : titleStyle.copyWith(color: Colors.white)),
         ),
       ),
     );
