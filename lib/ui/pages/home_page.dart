@@ -227,7 +227,27 @@ class _HomePageState extends State<HomePage> {
               task.isCompleted == 1
                   ? Container()
                   : _buildBottomSheet(
-                      label: 'Task Complated', onTap: () {}, clr: primaryClr)
+                      label: 'Task Complated',
+                      onTap: () {
+                        Get.back();
+                      },
+                      clr: primaryClr),
+              _buildBottomSheet(
+                  label: 'Delete Task',
+                  onTap: () {
+                    Get.back();
+                  },
+                  clr: primaryClr),
+              Divider(color: Get.isDarkMode ? Colors.grey : darkGreyClr),
+              _buildBottomSheet(
+                  label: 'Cancel',
+                  onTap: () {
+                    Get.back();
+                  },
+                  clr: primaryClr),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
