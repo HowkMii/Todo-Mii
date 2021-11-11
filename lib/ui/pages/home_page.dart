@@ -209,5 +209,23 @@ class _HomePageState extends State<HomePage> {
       {required String label,
       required Function() onTap,
       required Color clr,
-      bool isClose = false}) {}
+      bool isClose = false}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 4),
+      height: 65,
+      width: SizeConfig.screenWidth * 0.9,
+      decoration: BoxDecoration(
+        border: Border.all(
+          width: 2,
+          color: isClose
+              ? Get.isDarkMode
+                  ? Colors.grey[600]!
+                  : Colors.grey[300]!
+              : clr,
+        ),
+        borderRadius: BorderRadius.circular(20),
+        color: isClose ? Colors.transparent : clr,
+      ),
+    );
+  }
 }
