@@ -1,5 +1,6 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -145,11 +146,18 @@ class _HomePageState extends State<HomePage> {
             : Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           var task = _taskController.taskList[index];
-          return GestureDetector(
-            onTap: () {
-              showBottomSheet(context, task);
-            },
-            child: TaskTile(task),
+          return AnimationConfiguration.staggeredList(
+            position: index,
+            duration: const Duration(milliseconds: 500),
+            child: SlideAnimation(
+              horizontalOffset: 300,
+              child: FadeInAnimation(
+                child: GestureDetector(
+                  onTap: () => showBottomSheet(context, task),
+                  child: TaskTile(task),
+                ),
+              ),
+            ),
           );
         },
         itemCount: _taskController.taskList.length,
