@@ -144,28 +144,15 @@ class _HomePageState extends State<HomePage> {
             ? Axis.horizontal
             : Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
+          var task = _taskController.taskList[index];
           return GestureDetector(
             onTap: () {
-              showBottomSheet(
-                  context,
-                  Task(
-                      title: 'daiki',
-                      note: 'somthing',
-                      isCompleted: 0,
-                      startTime: '22:22',
-                      endTime: '23:22',
-                      color: 1));
+              showBottomSheet(context, task);
             },
-            child: TaskTile(Task(
-                title: 'daiki',
-                note: 'somthing',
-                isCompleted: 0,
-                startTime: '22:22',
-                endTime: '23:22',
-                color: 1)),
+            child: TaskTile(task),
           );
         },
-        itemCount: 3,
+        itemCount: _taskController.taskList.length,
       ),
     );
     /*return Expanded(
