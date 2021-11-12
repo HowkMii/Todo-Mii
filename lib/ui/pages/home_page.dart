@@ -139,6 +139,33 @@ class _HomePageState extends State<HomePage> {
 //_taskController.taskList.isEmpty
   _showTasks() {
     return Expanded(
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: () {
+              showBottomSheet(
+                  context,
+                  Task(
+                      title: 'daiki',
+                      note: 'somthing',
+                      isCompleted: 0,
+                      startTime: '22:22',
+                      endTime: '23:22',
+                      color: 1));
+            },
+            child: TaskTile(Task(
+                title: 'daiki',
+                note: 'somthing',
+                isCompleted: 0,
+                startTime: '22:22',
+                endTime: '23:22',
+                color: 1)),
+          );
+        },
+        itemCount: 3,
+      ),
+    );
+    /*return Expanded(
       child: GestureDetector(
         onTap: () {
           showBottomSheet(
@@ -166,7 +193,7 @@ class _HomePageState extends State<HomePage> {
         return Container(height: 0);
       }
     })*/
-    );
+    );*/
   }
 
   _noTaskMsg() {
@@ -222,6 +249,16 @@ class _HomePageState extends State<HomePage> {
     Get.bottomSheet(
       SingleChildScrollView(
         child: Container(
+          padding: const EdgeInsets.only(top: 4),
+          width: SizeConfig.screenHeight,
+          height: (SizeConfig.orientation == Orientation.landscape)
+              ? (task.isCompleted == 1
+                  ? SizeConfig.screenHeight * 0.6
+                  : SizeConfig.screenHeight * 0.8)
+              : (task.isCompleted == 1
+                  ? SizeConfig.screenHeight * 0.30
+                  : SizeConfig.screenHeight * 0.39),
+          color: Get.isDarkMode ? darkHeaderClr : Colors.white,
           child: Column(
             children: [
               Flexible(
