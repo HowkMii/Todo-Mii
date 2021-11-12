@@ -140,6 +140,9 @@ class _HomePageState extends State<HomePage> {
   _showTasks() {
     return Expanded(
       child: ListView.builder(
+        scrollDirection: SizeConfig.orientation == Orientation.landscape
+            ? Axis.horizontal
+            : Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
