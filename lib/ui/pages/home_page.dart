@@ -146,6 +146,8 @@ class _HomePageState extends State<HomePage> {
             : Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           var task = _taskController.taskList[index];
+          var hour = task.startTime.toString().split(':')[0];
+          var min = task.startTime.toString().split(':')[1];
           notifyHelper.scheduledNotification(20, 55, task);
           return AnimationConfiguration.staggeredList(
             position: index,
