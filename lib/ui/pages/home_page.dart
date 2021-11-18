@@ -150,7 +150,10 @@ class _HomePageState extends State<HomePage> {
           var min = task.startTime.toString().split(':')[1];
           var date = DateFormat.jm().parse(task.startTime!);
           var myTime = DateFormat('HH:mm').format(date);
-          notifyHelper.scheduledNotification(20, 55, task);
+          notifyHelper.scheduledNotification(
+              int.parse(myTime.toString().split(':')[0]),
+              int.parse(myTime.toString().split(':')[0]),
+              task);
 
           return AnimationConfiguration.staggeredList(
             position: index,
