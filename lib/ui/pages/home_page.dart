@@ -146,6 +146,7 @@ class _HomePageState extends State<HomePage> {
             : Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           var task = _taskController.taskList[index];
+          notifyHelper.scheduledNotification(20, 55, task);
           return AnimationConfiguration.staggeredList(
             position: index,
             duration: const Duration(milliseconds: 500),
