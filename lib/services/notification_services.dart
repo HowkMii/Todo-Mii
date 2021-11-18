@@ -97,7 +97,7 @@ class NotifyHelper {
     return scheduledDate;
   }
 
-  void requestIOSPermissions() {
+  void requestIOSPermissiion() {
     flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
             IOSFlutterLocalNotificationsPlugin>()
@@ -158,7 +158,7 @@ class NotifyHelper {
   void _configureSelectNotificationSubject() {
     selectNotificationSubject.stream.listen((String payload) async {
       debugPrint('My payload is ' + payload);
-      await Get.to(() => NotificationScreen(payload));
+      await Get.to(() => NotificationScreen(payload: payload));
     });
   }
 }

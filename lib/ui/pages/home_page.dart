@@ -59,8 +59,8 @@ class _HomePageState extends State<HomePage> {
       leading: IconButton(
         onPressed: () {
           ThemeServices().switTheme();
-          notifyHelper.displayNotification(title: 'theme change', body: 'yo');
-          notifyHelper.scheduledNotification();
+          //notifyHelper.displayNotification(title: 'theme change', body: 'yo');
+          //notifyHelper.scheduledNotification();
         },
         icon: Icon(
           Get.isDarkMode
