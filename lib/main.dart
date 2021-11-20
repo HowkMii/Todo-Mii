@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: Themes.light,
       darkTheme: Themes.Dark,
       themeMode: ThemeServices().theme,
-      title: 'Mii Todo',
+      title: 'Mii ',
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
     );
