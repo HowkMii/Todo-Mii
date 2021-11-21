@@ -14,7 +14,15 @@ class DBHelper {
     } else {
       try {
         String _path = await getDatabasesPath() + 'task.db';
-        _db = await openDatabase(_path);
+        _db = await openDatabase(_path, version: _version,
+            onCreate: (Database db, int version) async {
+          await db.execute(
+            'CREATE TABLE $_tableName ('
+            'id INTEGER PRIMARY KEY,'
+            'name TEXT, value INTEGER,'
+            'num REAL)',
+          );
+        });
       } catch (e) {
         print(e);
       }
