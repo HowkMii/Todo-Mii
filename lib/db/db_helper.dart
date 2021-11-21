@@ -5,8 +5,8 @@ import '/models/task.dart';
 
 class DBHelper {
   static Database? _db;
-  static final int _version = 1;
-  static final String _tableName = 'tasks';
+  static const int _version = 1;
+  static const String _tableName = 'tasks';
   static Future<void> initDb() async {
     if (_db != null) {
       debugPrint('not null db');
