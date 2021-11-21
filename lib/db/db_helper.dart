@@ -14,7 +14,7 @@ class DBHelper {
     } else {
       try {
         String _path = await getDatabasesPath() + 'task.db';
-        _db = await openDatabase('ourdb.db');
+        _db = await openDatabase(_path);
       } catch (e) {
         print(e);
       }
