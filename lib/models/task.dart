@@ -23,7 +23,7 @@ class Task {
       this.remind,
       this.repeat});
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
       'id': id,
       'title': title,
@@ -52,8 +52,6 @@ class Task {
       repeat: map['repeat'],
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   factory Task.fromJson(String source) => Task.fromMap(json.decode(source));
 }
