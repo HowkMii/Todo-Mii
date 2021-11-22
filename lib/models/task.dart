@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Task {
   int? id;
   String? title;
@@ -20,4 +22,38 @@ class Task {
       this.color,
       this.remind,
       this.repeat});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'note': note,
+      'isCompleted': isCompleted,
+      'date': date,
+      'startTime': startTime,
+      'endTime': endTime,
+      'color': color,
+      'remind': remind,
+      'repeat': repeat,
+    };
+  }
+
+  factory Task.fromMap(Map<String, dynamic> map) {
+    return Task(
+      id: map['id'],
+      title: map['title'],
+      note: map['note'],
+      isCompleted: map['isCompleted'],
+      date: map['date'],
+      startTime: map['startTime'],
+      endTime: map['endTime'],
+      color: map['color'],
+      remind: map['remind'],
+      repeat: map['repeat'],
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Task.fromJson(String source) => Task.fromMap(json.decode(source));
 }
