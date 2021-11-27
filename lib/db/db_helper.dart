@@ -39,9 +39,9 @@ class DBHelper {
     return await _db!.insert(_tableName, task!.toJson());
   }
 
-  static Future<int> insert(Task? task) async {
+  static Future<int> delete(Task task) async {
     print(';insert');
-    return await _db!.insert(_tableName, task!.toJson());
+    return await _db!.delete(_tableName, where: 'id=?', whereArgs: [task.id]);
   }
 
   static Future<int> insert(Task? task) async {
