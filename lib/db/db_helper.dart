@@ -40,12 +40,16 @@ class DBHelper {
   }
 
   static Future<int> delete(Task task) async {
-    print(';insert');
+    print(';delete');
     return await _db!.delete(_tableName, where: 'id=?', whereArgs: [task.id]);
   }
 
-  static Future<int> insert(Task? task) async {
-    print(';insert');
-    return await _db!.insert(_tableName, task!.toJson());
+  static Future<int> Update(Task? id) async {
+    print(';update');
+    return await _db!.rawUpdate('''
+      UPDATE tasks
+    SET isCompleted =?
+    WHERE id =?
+    ''', [1, id]);
   }
 }
