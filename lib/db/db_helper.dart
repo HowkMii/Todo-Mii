@@ -35,17 +35,22 @@ class DBHelper {
   }
 
   static Future<int> insert(Task? task) async {
-    print(';insert');
+    print(';insert function called');
     return await _db!.insert(_tableName, task!.toJson());
   }
 
   static Future<int> delete(Task task) async {
-    print(';delete');
+    print(';delete function called');
     return await _db!.delete(_tableName, where: 'id=?', whereArgs: [task.id]);
   }
 
+  static Future<List<Map<String, Object?>>> query(Task task) async {
+    print(';query function called ');
+    return await _db!.query(_tableName);
+  }
+
   static Future<int> Update(Task? id) async {
-    print(';update');
+    print(';update function called ');
     return await _db!.rawUpdate('''
       UPDATE tasks
     SET isCompleted =?
