@@ -209,6 +209,15 @@ class _AddTaskPageState extends State<AddTaskPage> {
     );
   }
 
+  _validateDate() {
+    if (_titleController.text.isNotEmpty && _noteController.text.isNotEmpty) {
+      _addTasksToDb();
+      Get.back();
+    } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
+    } else
+      print('');
+  }
+
   _addTasksToDb() async {
     int value = await _taskController.addTask(
       task: Task(
