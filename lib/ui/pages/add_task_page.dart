@@ -214,6 +214,14 @@ class _AddTaskPageState extends State<AddTaskPage> {
       _addTasksToDb();
       Get.back();
     } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
+      Get.snackbar('required', '',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.white,
+          colorText: pinkClr,
+          icon: const Icon(
+            Icons.warning_amber_rounded,
+            color: Colors.red,
+          ));
     } else
       print('');
   }
