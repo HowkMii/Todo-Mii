@@ -210,12 +210,18 @@ class _AddTaskPageState extends State<AddTaskPage> {
   }
 
   _addTasksToDb() async {
-    await _taskController.addTask(
+    int value = await _taskController.addTask(
       task: Task(
-          title: _titleController.text,
-          note: _noteController.text,
-          isCompleted: 0,
-          date: DateFormat.yMd().format(_selectDate)),
+        title: _titleController.text,
+        note: _noteController.text,
+        isCompleted: 0,
+        date: DateFormat.yMd().format(_selectDate),
+        startTime: _startTime,
+        endTime: _endtTime,
+        color: _selectedColor,
+        remind: _selectedRemind,
+        repeat: _selectedRepeat,
+      ),
     );
   }
 
