@@ -13,5 +13,6 @@ class TaskController extends GetxController {
             .format(DateTime.now().add(const Duration(minutes: 1))),
         color: 0),
   ];
+  addTask({Task? task}) {}
   getTasks() {}
 }

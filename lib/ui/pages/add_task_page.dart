@@ -177,7 +177,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   MyButton(
                     label: 'Create Task',
                     onTap: () {
-                      Get.back();
+                      _validateDate();
                     },
                   )
                 ],
@@ -214,7 +214,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
       _addTasksToDb();
       Get.back();
     } else if (_titleController.text.isEmpty || _noteController.text.isEmpty) {
-      Get.snackbar('required', '',
+      Get.snackbar('required', 'All filed are required!',
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.white,
           colorText: pinkClr,
@@ -223,7 +223,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
             color: Colors.red,
           ));
     } else
-      print('');
+      print('SOMTHING BAD HAPPEND');
   }
 
   _addTasksToDb() async {
