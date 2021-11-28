@@ -168,6 +168,12 @@ class _AddTaskPageState extends State<AddTaskPage> {
        
     );
   }
+  _addTasksToDb()async{
+    await _taskController.addTask(
+      task:Task();
+    )
+
+  }
 
   Column _colorPalette() {
     return Column(
