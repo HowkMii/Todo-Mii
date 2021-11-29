@@ -290,8 +290,21 @@ class _AddTaskPageState extends State<AddTaskPage> {
         initialDate: _selectDate,
         firstDate: DateTime(2020),
         lastDate: DateTime(2030));
-    if (_pickedDate != null) setState(() => _selectDate = _pickedDate);
+    if (_pickedDate != null)
+      setState(() => _selectDate = _pickedDate);
+    else
+      print('It\'s null or somthing is wrong');
   }
 
-  _getTimeFromUser({bool? isStartTime}) {}
+  _getTimeFromUser({required bool isStartTime}) async {
+    DateTime? _pickedDate = await showDatePicker(
+        context: context,
+        initialDate: _selectDate,
+        firstDate: DateTime(2020),
+        lastDate: DateTime(2030));
+    if (_pickedDate != null)
+      setState(() => _selectDate = _pickedDate);
+    else
+      print('It\'s null or somthing is wrong');
+  }
 }
