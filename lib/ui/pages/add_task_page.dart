@@ -297,14 +297,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
   }
 
   _getTimeFromUser({required bool isStartTime}) async {
-    DateTime? _pickedDate = await showDatePicker(
-        context: context,
-        initialDate: _selectDate,
-        firstDate: DateTime(2020),
-        lastDate: DateTime(2030));
-    if (_pickedDate != null)
-      setState(() => _selectDate = _pickedDate);
-    else
-      print('It\'s null or somthing is wrong');
+    TimeOfDay? _pickedTime = await showTimePicker(
+      context: context,
+      initialTime:isStartTime? TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 15))) ,
+    );
+    String _formattedTime = _pickedTime!.format(context);
+    if(isStartTime) setState(() => _startTime = _formattedTime);
+    if(!isStartTime) setState(() => _endtTime = _formattedTime);
+    else print('time canceld or somthing is wrong');
   }
 }
