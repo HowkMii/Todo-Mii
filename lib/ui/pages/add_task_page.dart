@@ -284,7 +284,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
     );
   }
 
-  _getDateFromUser() {}
+  _getDateFromUser() async {
+    await showDatePicker(
+        context: context,
+        initialDate: _selectDate,
+        firstDate: DateTime(2020),
+        lastDate: DateTime(2030));
+  }
 
-  _getTimeFromUser({bool isStartTime}) {}
+  _getTimeFromUser({bool? isStartTime}) {}
 }
