@@ -54,7 +54,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 hint: DateFormat.yMd().format(_selectDate),
                 title: 'Date',
                 widget: IconButton(
-                    onPressed: () {},
+                    onPressed: () => _getDateFromUser(),
                     icon: Icon(
                       Icons.calendar_today_outlined,
                       color: Colors.grey,
@@ -67,7 +67,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       hint: _startTime,
                       title: 'Start Time',
                       widget: IconButton(
-                          onPressed: () {},
+                          onPressed: () => _getTimeFromUser(isStartTime: true),
                           icon: Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
@@ -80,7 +80,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       hint: _endtTime,
                       title: 'End Time',
                       widget: IconButton(
-                          onPressed: () {},
+                          onPressed: () => _getTimeFromUser(isStartTime: false),
                           icon: Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
