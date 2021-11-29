@@ -290,10 +290,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
         initialDate: _selectDate,
         firstDate: DateTime(2020),
         lastDate: DateTime(2030));
-    if (_pickedDate != null)
-      setState(() {
-        _selectDate = _pickedDate;
-      });
+    if (_pickedDate != null) setState(() => _selectDate = _pickedDate);
   }
 
   _getTimeFromUser({bool? isStartTime}) {}
