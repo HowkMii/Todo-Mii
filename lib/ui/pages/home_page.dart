@@ -140,36 +140,38 @@ class _HomePageState extends State<HomePage> {
 //_taskController.taskList.isEmpty
   _showTasks() {
     return Expanded(
-      child: ListView.builder(
-        scrollDirection: SizeConfig.orientation == Orientation.landscape
-            ? Axis.horizontal
-            : Axis.vertical,
-        itemBuilder: (BuildContext context, int index) {
-          var task = _taskController.taskList[index];
-          var hour = task.startTime.toString().split(':')[0];
-          var min = task.startTime.toString().split(':')[1];
-          var date = DateFormat.jm().parse(task.startTime!);
-          var myTime = DateFormat('HH:mm').format(date);
-          notifyHelper.scheduledNotification(
-              int.parse(myTime.toString().split(':')[0]),
-              int.parse(myTime.toString().split(':')[0]),
-              task);
+      child: Obx(
+        () => ListView.builder(
+          scrollDirection: SizeConfig.orientation == Orientation.landscape
+              ? Axis.horizontal
+              : Axis.vertical,
+          itemBuilder: (BuildContext context, int index) {
+            var task = _taskController.taskList[index];
+            var hour = task.startTime.toString().split(':')[0];
+            var min = task.startTime.toString().split(':')[1];
+            var date = DateFormat.jm().parse(task.startTime!);
+            var myTime = DateFormat('HH:mm').format(date);
+            notifyHelper.scheduledNotification(
+                int.parse(myTime.toString().split(':')[0]),
+                int.parse(myTime.toString().split(':')[0]),
+                task);
 
-          return AnimationConfiguration.staggeredList(
-            position: index,
-            duration: const Duration(milliseconds: 500),
-            child: SlideAnimation(
-              horizontalOffset: 300,
-              child: FadeInAnimation(
-                child: GestureDetector(
-                  onTap: () => showBottomSheet(context, task),
-                  child: TaskTile(task),
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 500),
+              child: SlideAnimation(
+                horizontalOffset: 300,
+                child: FadeInAnimation(
+                  child: GestureDetector(
+                    onTap: () => showBottomSheet(context, task),
+                    child: TaskTile(task),
+                  ),
                 ),
               ),
-            ),
-          );
-        },
-        itemCount: _taskController.taskList.length,
+            );
+          },
+          itemCount: _taskController.taskList.length,
+        ),
       ),
     );
     /*return Expanded(

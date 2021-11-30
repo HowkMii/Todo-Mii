@@ -11,26 +11,25 @@ class DBHelper {
     if (_db != null) {
       debugPrint('not null db');
       return;
-    } else {
-      try {
-        String _path = await getDatabasesPath() + 'task.db';
-        debugPrint('in database path');
-        _db = await openDatabase(_path, version: _version,
-            onCreate: (Database db, int version) async {
-          debugPrint('creating one');
-          await db.execute(
-            'CREATE TABLE $_tableName ('
-            'id INTEGER PRIMARY KEY AUTOINCREMENT,'
-            'title STRING, note TEXT,date STRING,'
-            'startTime STRING, endTime STRING,'
-            'remind INTEGER, repeat STRING,'
-            'color INTEGER,'
-            'isCompleted INTEGER)',
-          );
-        });
-      } catch (e) {
-        print(e);
-      }
+    }
+    try {
+      String _path = await getDatabasesPath() + 'task.db';
+      debugPrint('in database path');
+      _db = await openDatabase(_path, version: _version,
+          onCreate: (Database db, int version) async {
+        debugPrint('creating one');
+        return db.execute(
+          'CREATE TABLE $_tableName ('
+          'id INTEGER PRIMARY KEY AUTOINCREMENT,'
+          'title STRING, note TEXT,date STRING,'
+          'startTime STRING, endTime STRING,'
+          'remind INTEGER, repeat STRING,'
+          'color INTEGER,'
+          'isCompleted INTEGER)',
+        );
+      });
+    } catch (e) {
+      print(e);
     }
   }
 
