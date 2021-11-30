@@ -302,8 +302,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
       initialTime:isStartTime? TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 15))) ,
     );
     String _formattedTime = _pickedTime!.format(context);
-    if(isStartTime) setState(() => _startTime = _formattedTime);
-    if(!isStartTime) setState(() => _endtTime = _formattedTime);
-    else print('time canceld or somthing is wrong');
+    if(isStartTime) 
+      setState(() => _startTime = _formattedTime);
+    if(!isStartTime) 
+      setState(() => _endtTime = _formattedTime);
+    else 
+      print('time canceld or somthing is wrong');
   }
 }
