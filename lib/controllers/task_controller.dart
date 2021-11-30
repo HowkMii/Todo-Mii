@@ -1,18 +1,8 @@
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:intl/intl.dart';
+import 'package:get/get.dart';
 import 'package:todomii/models/task.dart';
 
 class TaskController extends GetxController {
-  final taskList = <Task>[
-    Task(
-        id: 5,
-        title: 'daiki',
-        note: 'somthing',
-        isCompleted: 1,
-        startTime: DateFormat('hh:mm a')
-            .format(DateTime.now().add(const Duration(minutes: 1))),
-        color: 0),
-  ];
+  final RxList<Task> taskList = <Task>[].obs;
   addTask({Task? task}) {}
   getTasks() {}
 }
