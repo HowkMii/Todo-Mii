@@ -38,20 +38,16 @@ class Task {
     };
   }
 
-  factory Task.fromMap(Map<String, dynamic> map) {
-    return Task(
-      id: map['id'],
-      title: map['title'],
-      note: map['note'],
-      isCompleted: map['isCompleted'],
-      date: map['date'],
-      startTime: map['startTime'],
-      endTime: map['endTime'],
-      color: map['color'],
-      remind: map['remind'],
-      repeat: map['repeat'],
-    );
+  Task.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+    note = json['note'];
+    isCompleted = json['isCompleted'];
+    date = json['date'];
+    startTime = json['startTime'];
+    endTime = json['endTime'];
+    color = json['color'];
+    remind = json['remind'];
+    repeat = json['repeat'];
   }
-
-  factory Task.fromJson(String source) => Task.fromMap(json.decode(source));
 }
