@@ -139,9 +139,11 @@ class _HomePageState extends State<HomePage> {
 
 //_taskController.taskList.isEmpty
   _showTasks() {
-    return Expanded(
-      child: Obx(
-        () => ListView.builder(
+    return Expanded(child: Obx(() {
+      if (_taskController.taskList.isEmpty) {
+        return _noTaskMsg();
+      } else {
+        return ListView.builder(
           scrollDirection: SizeConfig.orientation == Orientation.landscape
               ? Axis.horizontal
               : Axis.vertical,
@@ -171,9 +173,10 @@ class _HomePageState extends State<HomePage> {
             );
           },
           itemCount: _taskController.taskList.length,
-        ),
-      ),
-    );
+        );
+      }
+    }));
+
     /*return Expanded(
       child: GestureDetector(
         onTap: () {
@@ -196,7 +199,7 @@ class _HomePageState extends State<HomePage> {
             color: 1)),
       ),
       /*child: Obx(() {
-      if (true) {
+      if (_taskController.taskList.isEmpty) {
         return _noTaskMsg();
       } else {
         return Container(height: 0);
