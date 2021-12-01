@@ -12,10 +12,8 @@ import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/size_config.dart';
 import 'package:todomii/ui/theme.dart';
 import 'package:todomii/ui/widgets/button.dart';
-import 'package:todomii/ui/widgets/input_field.dart';
 import 'package:todomii/ui/widgets/task_tile.dart';
 import 'add_task_page.dart';
-import 'notification_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final TaskController _taskController = Get.put(TaskController());
+  // ignore: unused_field
   DateTime _selectedDate = DateTime.now();
 
   @override
@@ -149,7 +148,9 @@ class _HomePageState extends State<HomePage> {
               : Axis.vertical,
           itemBuilder: (BuildContext context, int index) {
             var task = _taskController.taskList[index];
+            // ignore: unused_local_variable
             var hour = task.startTime.toString().split(':')[0];
+            // ignore: unused_local_variable
             var min = task.startTime.toString().split(':')[1];
             var date = DateFormat.jm().parse(task.startTime!);
             var myTime = DateFormat('HH:mm').format(date);
