@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:todomii/controllers/task_controller.dart';
 import 'package:todomii/models/task.dart';
-import 'package:todomii/services/theme_services.dart';
 import 'package:todomii/ui/theme.dart';
 import 'package:todomii/ui/widgets/button.dart';
 import 'package:todomii/ui/widgets/input_field.dart';
@@ -55,7 +54,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 title: 'Date',
                 widget: IconButton(
                     onPressed: () => _getDateFromUser(),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.calendar_today_outlined,
                       color: Colors.grey,
                     )),
@@ -68,7 +67,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       title: 'Start Time',
                       widget: IconButton(
                           onPressed: () => _getTimeFromUser(isStartTime: true),
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
                           )),
@@ -81,7 +80,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       title: 'End Time',
                       widget: IconButton(
                           onPressed: () => _getTimeFromUser(isStartTime: false),
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
                           )),
@@ -107,7 +106,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                 )),
                           )
                           .toList(),
-                      icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                      icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
                       iconSize: 32,
                       elevation: 4,
                       underline: Container(
@@ -130,6 +129,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 height: 18,
               ),
               InputField(
+                // ignore: unnecessary_string_interpolations
                 hint: '$_selectedRepeat',
                 title: 'Repeat',
                 widget: Row(
@@ -147,7 +147,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                 )),
                           )
                           .toList(),
-                      icon: Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                      icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
                       iconSize: 32,
                       elevation: 4,
                       underline: Container(
@@ -234,12 +234,13 @@ class _AddTaskPageState extends State<AddTaskPage> {
         isCompleted: 0,
         date: DateFormat.yMd().format(_selectDate),
         startTime: _startTime,
-        endTime: _endtTime,
+        endtTime: _endtTime,
         color: _selectedColor,
         remind: _selectedRemind,
         repeat: _selectedRepeat,
       ),
     );
+    print('$value');
   }
 
   Column _colorPalette() {
@@ -261,7 +262,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 padding: const EdgeInsets.only(right: 8.0),
                 child: CircleAvatar(
                   child: _selectedColor == index
-                      ? Icon(
+                      ? const Icon(
                           Icons.done,
                           size: 16,
                           color: Colors.white,

@@ -19,7 +19,7 @@ class TaskController extends GetxController {
   }
 
   void markTaskCompleted(int id) async {
-    await DBHelper.Update(id);
+    await DBHelper.update(id);
     getTasks();
   }
 }

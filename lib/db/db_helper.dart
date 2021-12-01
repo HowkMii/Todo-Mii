@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import '/models/task.dart';
 
 class DBHelper {
@@ -17,12 +16,12 @@ class DBHelper {
       debugPrint('in database path');
       _db = await openDatabase(_path, version: _version,
           onCreate: (Database db, int version) async {
-        debugPrint('creating one');
+        debugPrint('creating a new one');
         return db.execute(
           'CREATE TABLE $_tableName ('
           'id INTEGER PRIMARY KEY AUTOINCREMENT,'
           'title STRING, note TEXT,date STRING,'
-          'startTime STRING, endTime STRING,'
+          'startTime STRING, endtTime STRING,'
           'remind INTEGER, repeat STRING,'
           'color INTEGER,'
           'isCompleted INTEGER)',
@@ -35,7 +34,12 @@ class DBHelper {
 
   static Future<int> insert(Task? task) async {
     print(';insert function called');
-    return await _db!.insert(_tableName, task!.toJson());
+    try {
+      return await _db!.insert(_tableName, task!.toJson());
+    } catch (e) {
+      print('We are here');
+      return 90000;
+    }
   }
 
   static Future<int> delete(Task task) async {
@@ -43,12 +47,12 @@ class DBHelper {
     return await _db!.delete(_tableName, where: 'id=?', whereArgs: [task.id]);
   }
 
-  static Future<List<Map<String, Object?>>> query() async {
+  static Future<List<Map<String, dynamic>>> query() async {
     print(';query function called ');
     return await _db!.query(_tableName);
   }
 
-  static Future<int> Update(int? id) async {
+  static Future<int> update(int? id) async {
     print(';update function called ');
     return await _db!.rawUpdate('''
       UPDATE tasks
