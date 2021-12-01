@@ -178,6 +178,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                     label: 'Create Task',
                     onTap: () {
                       _validateDate();
+                      _taskController.getTasks();
                     },
                   )
                 ],
@@ -227,7 +228,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
   }
 
   _addTasksToDb() async {
-    int value = await _taskController.addTask(
+    try{
+      int value = await _taskController.addTask(
       task: Task(
         title: _titleController.text,
         note: _noteController.text,
@@ -240,7 +242,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
         repeat: _selectedRepeat,
       ),
     );
-    print('$value');
+    print('hada howa value aaaaaaaaaa $value');
+    }catch (e){
+      print('error');
+    }
+    
   }
 
   Column _colorPalette() {

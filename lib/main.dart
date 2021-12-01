@@ -7,17 +7,15 @@ import 'package:todomii/ui/theme.dart';
 import 'ui/pages/home_page.dart';
 
 void main() async {
-  runApp(const MyApp());
   WidgetsFlutterBinding.ensureInitialized();
   await DBHelper.initDb();
   await GetStorage.init();
+  runApp(const MyApp());
   //NotifyHelper().initializeNotification();
 }
-//probleme solving
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
