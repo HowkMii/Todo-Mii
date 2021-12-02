@@ -163,7 +163,10 @@ class _HomePageState extends State<HomePage> {
                                       DateFormat.yMd().parse(task.date!))
                                   .inDays %
                               7 ==
-                          0)) {
+                          0) ||
+                  (task.repeat == 'Monthly' &&
+                      DateFormat.yMd().parse(task.date!).day ==
+                          _selectedDate.day)) {
                 // ignore: unused_local_variable
                 //var hour = task.startTime.toString().split(':')[0];
                 // ignore: unused_local_variable
@@ -173,7 +176,7 @@ class _HomePageState extends State<HomePage> {
 
                 notifyHelper.scheduledNotification(
                     int.parse(myTime.toString().split(':')[0]),
-                    int.parse(myTime.toString().split(':')[0]),
+                    int.parse(myTime.toString().split(':')[1]),
                     task);
 
                 return AnimationConfiguration.staggeredList(
@@ -316,6 +319,7 @@ class _HomePageState extends State<HomePage> {
                   : _buildBottomSheet(
                       label: 'Task Complated',
                       onTap: () {
+                        notifyHelper.cancelNotification(task);
                         _taskController.markTaskCompleted(task.id!);
                         Get.back();
                       },
@@ -323,7 +327,9 @@ class _HomePageState extends State<HomePage> {
               _buildBottomSheet(
                   label: 'Delete Task',
                   onTap: () {
+                    notifyHelper.cancelNotification(task);
                     _taskController.deleteTasks(task);
+                    Get.back();
                   },
                   clr: Colors.red[200]!),
               Divider(color: Get.isDarkMode ? Colors.grey : darkGreyClr),

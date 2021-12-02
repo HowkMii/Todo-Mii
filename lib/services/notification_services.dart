@@ -3,6 +3,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:intl/intl.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
@@ -67,13 +68,18 @@ class NotifyHelper {
     );
   }
 
+  cancelNotification(Task task) async {
+    await flutterLocalNotificationsPlugin.cancel(task.id!);
+  }
+
   scheduledNotification(int hour, int minutes, Task task) async {
     await flutterLocalNotificationsPlugin.zonedSchedule(
       task.id!,
       task.title,
       task.note,
       //tz.TZDateTime.now(tz.local).add(const Duration(seconds: 5)),
-      _nextInstanceOfTenAM(hour, minutes),
+      _nextInstanceOfTenAM(
+          hour, minutes, task.remind!, task.repeat!, task.date!),
       const NotificationDetails(
         android: AndroidNotificationDetails(
             'your channel id', 'your channel name', 'your channel description'),
@@ -86,12 +92,41 @@ class NotifyHelper {
     );
   }
 
-  tz.TZDateTime _nextInstanceOfTenAM(int hour, int minutes) {
+  tz.TZDateTime _nextInstanceOfTenAM(
+      int hour, int minutes, int remind, String repeat, String date) {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
     tz.TZDateTime scheduledDate =
         tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minutes);
+    var formattedDate = DateFormat.yMd().parse(date);
+    scheduledDate = afterRemind(remind, scheduledDate);
+
     if (scheduledDate.isBefore(now)) {
-      scheduledDate = scheduledDate.add(const Duration(days: 1));
+      if (repeat == 'Daily') {
+        scheduledDate = scheduledDate.add(const Duration(days: 1));
+      }
+      if (repeat == 'Weekly') {
+        scheduledDate = tz.TZDateTime(tz.local, now.year, now.month,
+            (formattedDate.day) + 7, hour, minutes);
+      }
+      if (repeat == 'Monthly') {
+        scheduledDate = scheduledDate.add(const Duration(days: 30));
+      }
+    }
+    return scheduledDate;
+  }
+
+  tz.TZDateTime afterRemind(int remind, tz.TZDateTime scheduledDate) {
+    if (remind == 5) {
+      scheduledDate = scheduledDate.subtract(const Duration(minutes: 5));
+    }
+    if (remind == 10) {
+      scheduledDate = scheduledDate.subtract(const Duration(minutes: 10));
+    }
+    if (remind == 15) {
+      scheduledDate = scheduledDate.subtract(const Duration(minutes: 15));
+    }
+    if (remind == 20) {
+      scheduledDate = scheduledDate.subtract(const Duration(minutes: 20));
     }
     return scheduledDate;
   }
