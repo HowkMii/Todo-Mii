@@ -98,7 +98,6 @@ class NotifyHelper {
     tz.TZDateTime scheduledDate =
         tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minutes);
     var formattedDate = DateFormat.yMd().parse(date);
-    scheduledDate = afterRemind(remind, scheduledDate);
 
     if (scheduledDate.isBefore(now)) {
       if (repeat == 'Daily') {
@@ -114,6 +113,7 @@ class NotifyHelper {
             (formattedDate.day), hour, minutes);
       }
     }
+    scheduledDate = afterRemind(remind, scheduledDate);
     return scheduledDate;
   }
 

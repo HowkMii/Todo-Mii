@@ -66,9 +66,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       hint: _startTime,
                       title: 'Start Time',
                       widget: IconButton(
-                          onPressed: () {
-                            // _getTimeFromUser(isStartTime: true)
-                          },
+                          onPressed: () => _getTimeFromUser(isStartTime: true),
                           icon: const Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
@@ -81,7 +79,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       hint: _endtTime,
                       title: 'End Time',
                       widget: IconButton(
-                          onPressed: () {},
+                          onPressed: () => _getTimeFromUser(isStartTime: false),
                           icon: const Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
