@@ -199,6 +199,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
       ),
       leading: IconButton(
         onPressed: () => Get.back(),
+
         icon: Icon(
           Icons.arrow_back_ios,
           size: 24,
@@ -306,8 +307,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
   _getTimeFromUser({required bool isStartTime}) async {
     TimeOfDay? _pickedTime = await showTimePicker(
       context: context,
-      initialTime:isStartTime? TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 15))) ,
-    );
+      initialTime:isStartTime? TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 15))));
     String _formattedTime = _pickedTime!.format(context);
     if(isStartTime) 
       setState(() => _startTime = _formattedTime);
