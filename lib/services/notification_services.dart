@@ -102,14 +102,16 @@ class NotifyHelper {
 
     if (scheduledDate.isBefore(now)) {
       if (repeat == 'Daily') {
-        scheduledDate = scheduledDate.add(const Duration(days: 1));
+        scheduledDate = tz.TZDateTime(tz.local, now.year, now.month,
+            (formattedDate.day) + 1, hour, minutes);
       }
       if (repeat == 'Weekly') {
         scheduledDate = tz.TZDateTime(tz.local, now.year, now.month,
             (formattedDate.day) + 7, hour, minutes);
       }
       if (repeat == 'Monthly') {
-        scheduledDate = scheduledDate.add(const Duration(days: 30));
+        tz.TZDateTime(tz.local, now.year, (formattedDate.month) + 1,
+            (formattedDate.day), hour, minutes);
       }
     }
     return scheduledDate;
