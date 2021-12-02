@@ -155,30 +155,43 @@ class _HomePageState extends State<HomePage> {
                 : Axis.vertical,
             itemBuilder: (BuildContext context, int index) {
               var task = _taskController.taskList[index];
-              // ignore: unused_local_variable
-              var hour = task.startTime.toString().split(':')[0];
-              // ignore: unused_local_variable
-              var min = task.startTime.toString().split(':')[1];
-              var date = DateFormat.jm().parse(task.startTime!);
-              var myTime = DateFormat('HH:mm').format(date);
-              notifyHelper.scheduledNotification(
-                  int.parse(myTime.toString().split(':')[0]),
-                  int.parse(myTime.toString().split(':')[0]),
-                  task);
+              if (task.repeat == 'Daily' ||
+                  task.date == DateFormat.yMd().format(_selectedDate) ||
+                  (task.repeat == 'Weekly' &&
+                      _selectedDate
+                                  .difference(
+                                      DateFormat.yMd().parse(task.date!))
+                                  .inDays %
+                              7 ==
+                          0)) {
+                // ignore: unused_local_variable
+                //var hour = task.startTime.toString().split(':')[0];
+                // ignore: unused_local_variable
+                //var min = task.startTime.toString().split(':')[1];
+                var date = DateFormat.jm().parse(task.startTime!);
+                var myTime = DateFormat('HH:mm').format(date);
 
-              return AnimationConfiguration.staggeredList(
-                position: index,
-                duration: const Duration(milliseconds: 500),
-                child: SlideAnimation(
-                  horizontalOffset: 300,
-                  child: FadeInAnimation(
-                    child: GestureDetector(
-                      onTap: () => showBottomSheet(context, task),
-                      child: TaskTile(task),
+                notifyHelper.scheduledNotification(
+                    int.parse(myTime.toString().split(':')[0]),
+                    int.parse(myTime.toString().split(':')[0]),
+                    task);
+
+                return AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: const Duration(milliseconds: 500),
+                  child: SlideAnimation(
+                    horizontalOffset: 300,
+                    child: FadeInAnimation(
+                      child: GestureDetector(
+                        onTap: () => showBottomSheet(context, task),
+                        child: TaskTile(task),
+                      ),
                     ),
                   ),
-                ),
-              );
+                );
+              } else {
+                return Container();
+              }
             },
             itemCount: _taskController.taskList.length,
           ),
@@ -312,7 +325,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     _taskController.deleteTasks(task);
                   },
-                  clr: primaryClr),
+                  clr: Colors.red[200]!),
               Divider(color: Get.isDarkMode ? Colors.grey : darkGreyClr),
               _buildBottomSheet(
                   label: 'Cancel',

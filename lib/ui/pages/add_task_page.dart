@@ -66,7 +66,9 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       hint: _startTime,
                       title: 'Start Time',
                       widget: IconButton(
-                          onPressed: () => _getTimeFromUser(isStartTime: true),
+                          onPressed: () {
+                            // _getTimeFromUser(isStartTime: true)
+                          },
                           icon: const Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
@@ -79,7 +81,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
                       hint: _endtTime,
                       title: 'End Time',
                       widget: IconButton(
-                          onPressed: () => _getTimeFromUser(isStartTime: false),
+                          onPressed: () {},
                           icon: const Icon(
                             Icons.access_time_rounded,
                             color: Colors.grey,
@@ -106,7 +108,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                 )),
                           )
                           .toList(),
-                      icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                      icon: const Icon(Icons.keyboard_arrow_down,
+                          color: Colors.grey),
                       iconSize: 32,
                       elevation: 4,
                       underline: Container(
@@ -147,7 +150,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
                                 )),
                           )
                           .toList(),
-                      icon: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+                      icon: const Icon(Icons.keyboard_arrow_down,
+                          color: Colors.grey),
                       iconSize: 32,
                       elevation: 4,
                       underline: Container(
@@ -199,7 +203,6 @@ class _AddTaskPageState extends State<AddTaskPage> {
       ),
       leading: IconButton(
         onPressed: () => Get.back(),
-
         icon: Icon(
           Icons.arrow_back_ios,
           size: 24,
@@ -229,29 +232,29 @@ class _AddTaskPageState extends State<AddTaskPage> {
   }
 
   _addTasksToDb() async {
-    try{
+    try {
       int value = await _taskController.addTask(
-      task: Task(
-        title: _titleController.text,
-        note: _noteController.text,
-        isCompleted: 0,
-        date: DateFormat.yMd().format(_selectDate),
-        startTime: _startTime,
-        endtTime: _endtTime,
-        color: _selectedColor,
-        remind: _selectedRemind,
-        repeat: _selectedRepeat,
-      ),
-    );
-    print('hada howa value aaaaaaaaaa $value');
-    }catch (e){
+        task: Task(
+          title: _titleController.text,
+          note: _noteController.text,
+          isCompleted: 0,
+          date: DateFormat.yMd().format(_selectDate),
+          startTime: _startTime,
+          endtTime: _endtTime,
+          color: _selectedColor,
+          remind: _selectedRemind,
+          repeat: _selectedRepeat,
+        ),
+      );
+      print('hada howa value aaaaaaaaaa $value');
+    } catch (e) {
       print('error');
     }
-    
   }
 
   Column _colorPalette() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
           height: 8,
@@ -306,14 +309,18 @@ class _AddTaskPageState extends State<AddTaskPage> {
 
   _getTimeFromUser({required bool isStartTime}) async {
     TimeOfDay? _pickedTime = await showTimePicker(
-      context: context,
-      initialTime:isStartTime? TimeOfDay.fromDateTime(DateTime.now().add(const Duration(minutes: 15))));
+        initialEntryMode: TimePickerEntryMode.input,
+        context: context,
+        initialTime: isStartTime
+            ? TimeOfDay.fromDateTime(DateTime.now())
+            : TimeOfDay.fromDateTime(
+                DateTime.now().add(const Duration(minutes: 15))));
     String _formattedTime = _pickedTime!.format(context);
-    if(isStartTime) 
+    if (isStartTime)
       setState(() => _startTime = _formattedTime);
-    if(!isStartTime) 
+    else if (!isStartTime)
       setState(() => _endtTime = _formattedTime);
-    else 
+    else
       print('time canceld or somthing is wrong');
   }
 }
