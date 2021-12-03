@@ -95,9 +95,10 @@ class NotifyHelper {
   tz.TZDateTime _nextInstanceOfTenAM(
       int hour, int minutes, int remind, String repeat, String date) {
     final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-    tz.TZDateTime scheduledDate =
-        tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, minutes);
     var formattedDate = DateFormat.yMd().parse(date);
+    final tz.TZDateTime fd = tz.TZDateTime.from(formattedDate, tz.local);
+    tz.TZDateTime scheduledDate =
+        tz.TZDateTime(tz.local, fd.year, fd.month, fd.day, hour, minutes);
 
     if (scheduledDate.isBefore(now)) {
       if (repeat == 'Daily') {
@@ -112,8 +113,9 @@ class NotifyHelper {
         tz.TZDateTime(tz.local, now.year, (formattedDate.month) + 1,
             (formattedDate.day), hour, minutes);
       }
+      scheduledDate = afterRemind(remind, scheduledDate);
     }
-    scheduledDate = afterRemind(remind, scheduledDate);
+
     return scheduledDate;
   }
 
