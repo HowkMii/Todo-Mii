@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: Themes.light,
       darkTheme: Themes.Dark,
-      themeMode: ThemeServices().theme,-
+      themeMode: ThemeServices().theme,
       title: 'Mii Todo',
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
